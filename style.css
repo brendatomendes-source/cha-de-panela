@@ -1,11 +1,13 @@
 :root {
-    --fundo: #faf6f1;
-    --fundo-escuro: #eee2d7;
-    --rosa: #b98282;
-    --rosa-claro: #d9b7b0;
-    --marrom: #51413d;
-    --texto: #665653;
+    --fundo: #ffffff;
+    --fundo-suave: #f7f9fc;
+    --azul: #102a43;
+    --azul-claro: #dbe7f3;
+    --azul-medio: #486581;
+    --texto: #334e68;
     --branco: #ffffff;
+    --borda: #d9e2ec;
+    --verde: #6b8e6b;
 }
 
 * {
@@ -29,7 +31,7 @@ h1,
 h2,
 h3 {
     font-family: "Cormorant Garamond", serif;
-    color: var(--marrom);
+    color: var(--azul);
 }
 
 h2 {
@@ -60,26 +62,26 @@ p {
 
     padding: 50px 25px;
 
-     position: relative;
+    position: relative;
     overflow: hidden;
 
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(217, 183, 176, 0.35) 0,
+            rgba(219, 231, 243, 0.8) 0,
             transparent 25%
         ),
         radial-gradient(
             circle at 85% 75%,
-            rgba(217, 183, 176, 0.28) 0,
+            rgba(219, 231, 243, 0.6) 0,
             transparent 25%
         ),
-        #fffdfb;
+        #ffffff;
 }
 
 .flores {
     font-size: 45px;
-    color: var(--rosa);
+    color: var(--azul);
     margin-bottom: 20px;
 }
 
@@ -88,7 +90,7 @@ p {
     letter-spacing: 4px;
     font-size: 11px;
     font-weight: 600;
-    color: var(--rosa);
+    color: var(--azul-medio);
 }
 
 .capa h1 {
@@ -103,20 +105,21 @@ p {
     font-family: "Cormorant Garamond", serif;
     font-size: 0.55em;
     font-style: italic;
-    color: var(--rosa);
+    color: var(--azul-medio);
     letter-spacing: 3px;
 }
 
 .linha {
     width: 80px;
     height: 1px;
-    background: var(--rosa);
+    background: var(--azul);
     margin: 15px auto 20px;
 }
 
 .data {
     letter-spacing: 5px;
     font-size: 13px;
+    color: var(--azul);
 }
 
 .frase {
@@ -124,6 +127,38 @@ p {
     font-size: 22px;
     font-style: italic;
     margin: 30px auto;
+}
+
+.capa::before {
+    content: "✿";
+    position: absolute;
+
+    top: 60px;
+    left: 8%;
+
+    font-size: 55px;
+
+    color: var(--azul-claro);
+
+    transform: rotate(-20deg);
+
+    opacity: 0.9;
+}
+
+.capa::after {
+    content: "✿";
+    position: absolute;
+
+    bottom: 60px;
+    right: 8%;
+
+    font-size: 45px;
+
+    color: var(--azul-claro);
+
+    transform: rotate(20deg);
+
+    opacity: 0.9;
 }
 
 
@@ -136,7 +171,7 @@ p {
 
     border: none;
 
-    background: var(--rosa);
+    background: var(--azul);
     color: white;
 
     padding: 14px 30px;
@@ -157,13 +192,13 @@ p {
 
 .botao:hover {
     transform: translateY(-3px);
-    opacity: 0.85;
+    opacity: 0.88;
 }
 
 .secundario {
     background: transparent;
-    border: 1px solid var(--rosa);
-    color: var(--rosa);
+    border: 1px solid var(--azul);
+    color: var(--azul);
 }
 
 
@@ -219,7 +254,7 @@ p {
 
     margin: 10px;
 
-    color: var(--rosa);
+    color: var(--azul-medio);
 }
 
 .detalhe p {
@@ -236,7 +271,7 @@ p {
 
     padding: 110px 25px;
 
-    background: var(--fundo-escuro);
+    background: var(--fundo-suave);
 }
 
 .mensagem h2 {
@@ -248,7 +283,7 @@ p {
 }
 
 .ornamento {
-    color: var(--rosa);
+    color: var(--azul);
 
     font-size: 35px;
 
@@ -257,174 +292,19 @@ p {
 
 
 /* =========================
-   PRESENTES
+   LISTA DE PRESENTES
 ========================= */
 
 .presentes {
     min-height: 500px;
 }
 
-.aviso {
-    max-width: 600px;
-
-    margin: 45px auto 0;
-
-    padding: 30px;
-
-    background: white;
-
-    border: 1px solid #eadbd3;
-
-    border-radius: 10px;
-}
-
-.aviso span {
-    font-size: 30px;
-}
-
-.aviso p {
-    margin-top: 10px;
-}
-
-
-/* =========================
-   PIX
-========================= */
-
-.pix {
-    padding: 90px 25px;
-
-    background: var(--fundo-escuro);
-
-    text-align: center;
-}
-
-.pix-caixa {
-    max-width: 650px;
-
-    margin: auto;
-
-    background: white;
-
-    padding: 50px 30px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 10px 40px rgba(80, 50, 40, 0.08);
-}
-
-.icone {
-    font-size: 35px;
-
-    color: var(--rosa);
-}
-
-.pix-caixa p {
-    margin: 20px auto;
-}
-
-.pix-chave {
-    background: var(--fundo);
-
-    padding: 15px;
-
-    margin: 25px auto;
-
-    max-width: 400px;
-
-    font-size: 12px;
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================
-   CONFIRMAÇÃO
-========================= */
-
-.confirmacao {
-    padding-top: 110px;
-
-    padding-bottom: 110px;
-}
-
-
-/* =========================
-   RODAPÉ
-========================= */
-
-footer {
-    background: var(--marrom);
-
-    color: white;
-
-    text-align: center;
-
-    padding: 50px 20px;
-}
-
-footer div {
-    font-size: 30px;
-
-    color: var(--rosa-claro);
-}
-
-footer p {
-    margin: 10px auto;
-}
-
-footer small {
-    opacity: 0.6;
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-.capa::before {
-    content: "✿";
-    position: absolute;
-
-    top: 60px;
-    left: 8%;
-
-    font-size: 55px;
-
-    color: var(--rosa-claro);
-
-    transform: rotate(-20deg);
-
-    opacity: 0.7;
-}
-
-.capa::after {
-    content: "✿";
-    position: absolute;
-
-    bottom: 60px;
-    right: 8%;
-
-    font-size: 45px;
-
-    color: var(--rosa-claro);
-
-    transform: rotate(20deg);
-
-    opacity: 0.7;
-}
-
-/* =========================
-   LISTA DE PRESENTES
-========================= */
-
 .lista-presentes {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 25px;
+    gap: 30px;
 
     margin-top: 55px;
 }
@@ -432,7 +312,7 @@ footer small {
 .presente-card {
     background: white;
 
-    border: 1px solid #eadbd3;
+    border: 1px solid var(--borda);
 
     border-radius: 12px;
 
@@ -440,7 +320,7 @@ footer small {
 
     text-align: left;
 
-    box-shadow: 0 8px 30px rgba(80, 50, 40, 0.06);
+    box-shadow: 0 8px 30px rgba(16, 42, 67, 0.07);
 
     transition: 0.3s;
 }
@@ -448,23 +328,18 @@ footer small {
 .presente-card:hover {
     transform: translateY(-5px);
 
-    box-shadow: 0 15px 35px rgba(80, 50, 40, 0.10);
+    box-shadow: 0 15px 35px rgba(16, 42, 67, 0.12);
 }
 
 .presente-imagem {
-    height: 190px;
+    height: 210px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background:
-        radial-gradient(
-            circle,
-            #f4ddd8,
-            #fff9f6
-        );
+    background: var(--fundo-suave);
 
     font-size: 75px;
 }
@@ -484,7 +359,7 @@ footer small {
 }
 
 .disponivel {
-    color: #7c9a7c;
+    color: var(--verde);
 }
 
 .presente-conteudo h3 {
@@ -506,7 +381,7 @@ footer small {
 .presente-conteudo strong {
     display: block;
 
-    color: var(--rosa);
+    color: var(--azul);
 
     font-size: 20px;
 
@@ -536,21 +411,175 @@ footer small {
 .presente-botoes .loja {
     background: transparent;
 
-    border: 1px solid var(--rosa);
+    border: 1px solid var(--azul);
 
-    color: var(--rosa);
+    color: var(--azul);
 }
 
 .presente-botoes .escolher {
-    background: var(--rosa);
+    background: var(--azul);
 
     color: white;
 }
 
-@media (max-width: 700px) {
-.lista-presentes {
-    grid-template-columns: 1fr;
+
+/* =========================
+   PALETA DA CASA
+========================= */
+
+.paleta-casa {
+    margin: 70px auto 0;
+
+    max-width: 750px;
+
+    padding: 40px 30px;
+
+    background: var(--fundo-suave);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 12px;
 }
+
+.paleta-casa h3 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.paleta-casa p {
+    font-size: 14px;
+}
+
+.cores-casa {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.cor {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.cor.azul-marinho {
+    background: #102a43;
+}
+
+.cor.branco {
+    background: #ffffff;
+    border: 1px solid var(--borda);
+}
+
+
+/* =========================
+   PIX
+========================= */
+
+.pix {
+    padding: 90px 25px;
+
+    background: var(--fundo-suave);
+
+    text-align: center;
+}
+
+.pix-caixa {
+    max-width: 650px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 50px 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 40px rgba(16, 42, 67, 0.08);
+}
+
+.icone {
+    font-size: 35px;
+
+    color: var(--azul);
+}
+
+.pix-caixa p {
+    margin: 20px auto;
+}
+
+.pix-chave {
+    background: var(--fundo-suave);
+
+    padding: 15px;
+
+    margin: 25px auto;
+
+    max-width: 400px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   CONFIRMAÇÃO
+========================= */
+
+.confirmacao {
+    padding-top: 110px;
+
+    padding-bottom: 110px;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background: var(--azul);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+footer div {
+    font-size: 30px;
+
+    color: white;
+}
+
+footer p {
+    margin: 10px auto;
+}
+
+footer small {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
     h2 {
         font-size: 34px;
     }
@@ -569,6 +598,10 @@ footer small {
 
     .detalhe {
         width: 100%;
+    }
+
+    .lista-presentes {
+        grid-template-columns: 1fr;
     }
 
     .convite,
