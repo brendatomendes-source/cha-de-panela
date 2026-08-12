@@ -1,1 +1,398 @@
+:root {
+    --fundo: #faf6f1;
+    --fundo-escuro: #eee2d7;
+    --rosa: #b98282;
+    --rosa-claro: #d9b7b0;
+    --marrom: #51413d;
+    --texto: #665653;
+    --branco: #ffffff;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--marrom);
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 500;
+}
+
+p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   CAPA
+========================= */
+
+.capa {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+
+    background:
+        radial-gradient(circle at 10% 20%, #ead3cc 0, transparent 20%),
+        radial-gradient(circle at 90% 80%, #e6d4c4 0, transparent 22%),
+        var(--fundo);
+}
+
+.flores {
+    font-size: 45px;
+    color: var(--rosa);
+    margin-bottom: 20px;
+}
+
+.pequeno,
+.titulo-pequeno {
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rosa);
+}
+
+.capa h1 {
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: 0.85;
+    margin: 25px 0;
+    font-weight: 400;
+}
+
+.capa h1 span {
+    font-style: italic;
+    color: var(--rosa);
+}
+
+.linha {
+    width: 80px;
+    height: 1px;
+    background: var(--rosa);
+    margin: 15px auto 20px;
+}
+
+.data {
+    letter-spacing: 5px;
+    font-size: 13px;
+}
+
+.frase {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-style: italic;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botao {
+    display: inline-block;
+
+    border: none;
+
+    background: var(--rosa);
+    color: white;
+
+    padding: 14px 30px;
+    margin-top: 15px;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
+}
+
+.secundario {
+    background: transparent;
+    border: 1px solid var(--rosa);
+    color: var(--rosa);
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.convite,
+.presentes,
+.confirmacao {
+    text-align: center;
+
+    padding: 100px 25px;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.texto {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
+/* =========================
+   DETALHES
+========================= */
+
+.detalhes {
+    display: flex;
+    justify-content: center;
+
+    gap: 80px;
+
+    margin: 60px auto 30px;
+}
+
+.detalhe {
+    width: 260px;
+}
+
+.detalhe span {
+    font-size: 30px;
+}
+
+.detalhe h3 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin: 10px;
+
+    color: var(--rosa);
+}
+
+.detalhe p {
+    font-size: 14px;
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem {
+    text-align: center;
+
+    padding: 110px 25px;
+
+    background: var(--fundo-escuro);
+}
+
+.mensagem h2 {
+    margin-bottom: 25px;
+}
+
+.mensagem p {
+    margin-bottom: 20px;
+}
+
+.ornamento {
+    color: var(--rosa);
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   PRESENTES
+========================= */
+
+.presentes {
+    min-height: 500px;
+}
+
+.aviso {
+    max-width: 600px;
+
+    margin: 45px auto 0;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #eadbd3;
+
+    border-radius: 10px;
+}
+
+.aviso span {
+    font-size: 30px;
+}
+
+.aviso p {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   PIX
+========================= */
+
+.pix {
+    padding: 90px 25px;
+
+    background: var(--fundo-escuro);
+
+    text-align: center;
+}
+
+.pix-caixa {
+    max-width: 650px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 50px 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 40px rgba(80, 50, 40, 0.08);
+}
+
+.icone {
+    font-size: 35px;
+
+    color: var(--rosa);
+}
+
+.pix-caixa p {
+    margin: 20px auto;
+}
+
+.pix-chave {
+    background: var(--fundo);
+
+    padding: 15px;
+
+    margin: 25px auto;
+
+    max-width: 400px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   CONFIRMAÇÃO
+========================= */
+
+.confirmacao {
+    padding-top: 110px;
+
+    padding-bottom: 110px;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background: var(--marrom);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+footer div {
+    font-size: 30px;
+
+    color: var(--rosa-claro);
+}
+
+footer p {
+    margin: 10px auto;
+}
+
+footer small {
+    opacity: 0.6;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    h2 {
+        font-size: 34px;
+    }
+
+    .capa h1 {
+        font-size: 65px;
+    }
+
+    .detalhes {
+        flex-direction: column;
+
+        gap: 40px;
+
+        align-items: center;
+    }
+
+    .detalhe {
+        width: 100%;
+    }
+
+    .convite,
+    .presentes,
+    .confirmacao {
+        padding: 80px 20px;
+    }
+}
