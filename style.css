@@ -302,11 +302,13 @@ p {
 .lista-presentes {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 30px;
+    gap: 20px;
 
-    margin-top: 55px;
+    max-width: 1100px;
+
+    margin: 55px auto 0;
 }
 
 .presente-card {
@@ -318,9 +320,9 @@ p {
 
     overflow: hidden;
 
-    text-align: left;
+    text-align: center;
 
-    box-shadow: 0 8px 30px rgba(16, 42, 67, 0.07);
+    box-shadow: 0 6px 20px rgba(16, 42, 67, 0.07);
 
     transition: 0.3s;
 }
@@ -332,7 +334,7 @@ p {
 }
 
 .presente-imagem {
-    height: 210px;
+    height: 140px;
 
     display: flex;
 
@@ -341,11 +343,11 @@ p {
 
     background: var(--fundo-suave);
 
-    font-size: 75px;
+    font-size: 55px;
 }
 
 .presente-conteudo {
-    padding: 25px;
+    padding: 18px;
 }
 
 .status {
@@ -363,7 +365,7 @@ p {
 }
 
 .presente-conteudo h3 {
-    font-size: 28px;
+    font-size: 22px;
 
     font-weight: 500;
 
@@ -383,9 +385,9 @@ p {
 
     color: var(--azul);
 
-    font-size: 20px;
+    font-size: 16px;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .presente-botoes {
@@ -601,8 +603,10 @@ footer small {
     }
 
     .lista-presentes {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
 
     .convite,
     .presentes,
