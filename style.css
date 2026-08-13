@@ -833,85 +833,166 @@ footer small {
 
     margin-top: 5px;
 }
+
 /* =========================
-   LISTA DE PRESENTES - GRADE
+   GRADE DA LISTA DE PRESENTES
 ========================= */
 
-.lista-pagina .lista-presentes {
+.lista-pagina {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 18px !important;
-    width: 100%;
+
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    gap: 20px !important;
+
     max-width: 1100px;
-    margin: 40px auto 0;
+
+    margin: 0 auto;
+
+    padding: 40px 25px !important;
 }
+
+
+/* CARTÕES */
 
 .lista-pagina .presente-card {
     width: 100%;
-    min-width: 0;
-    margin: 0;
+
+    margin: 0 !important;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
     text-align: center;
+
+    box-shadow: 0 6px 20px rgba(16, 42, 67, 0.07);
 }
+
+
+/* IMAGEM / EMOJI */
 
 .lista-pagina .presente-imagem {
     height: 130px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--fundo-suave);
+
     font-size: 50px;
 }
+
+
+/* CONTEÚDO */
 
 .lista-pagina .presente-conteudo {
     padding: 16px;
 }
 
-.lista-pagina .presente-conteudo h2,
-.lista-pagina .presente-conteudo h3 {
+
+/* NOME */
+
+.lista-pagina .presente-conteudo h2 {
     font-size: 21px;
-    margin-bottom: 8px;
+
+    margin: 8px 0;
 }
+
+
+/* DESCRIÇÃO */
 
 .lista-pagina .presente-conteudo p {
     font-size: 12px;
+
     line-height: 1.5;
+
+    margin-bottom: 12px;
 }
+
+
+/* PREÇO */
 
 .lista-pagina .presente-conteudo strong {
+    display: block;
+
     font-size: 15px;
+
+    color: var(--azul);
+
+    margin-bottom: 12px;
 }
 
+
+/* BOTÕES */
+
 .lista-pagina .presente-botoes {
+    display: flex;
+
+    flex-direction: column;
+
     gap: 6px;
 }
 
+
 .lista-pagina .presente-botoes .botao {
-    padding: 10px 6px;
+    width: 100%;
+
+    padding: 10px 5px;
+
     font-size: 8px;
+
+    margin-top: 0;
 }
 
 
-/* CELULAR */
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 700px) {
 
-    .lista-pagina .lista-presentes {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    .lista-pagina {
+        grid-template-columns: repeat(2, 1fr) !important;
+
         gap: 12px !important;
+
+        padding: 30px 12px !important;
     }
+
 
     .lista-pagina .presente-imagem {
         height: 100px;
+
         font-size: 40px;
     }
+
 
     .lista-pagina .presente-conteudo {
         padding: 12px 8px;
     }
 
-    .lista-pagina .presente-conteudo h2,
-    .lista-pagina .presente-conteudo h3 {
+
+    .lista-pagina .presente-conteudo h2 {
         font-size: 17px;
     }
 
+
     .lista-pagina .presente-conteudo p {
-        font-size: 11px;
+        font-size: 10px;
+    }
+
+
+    .lista-pagina .presente-conteudo strong {
+        font-size: 13px;
     }
 
 }
+
