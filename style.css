@@ -1142,3 +1142,29 @@ footer small {
 .cabecalho-lista p {
     text-align: center;
 }
+
+/* =========================
+   CORREÇÃO DOS BOTÕES
+========================= */
+
+.lista-pagina {
+    position: relative;
+    z-index: 10;
+}
+
+.presente-card {
+    position: relative;
+    z-index: 11;
+}
+
+.presente-botoes {
+    position: relative;
+    z-index: 20;
+}
+
+.presente-botoes .escolher {
+    position: relative;
+    z-index: 30;
+    pointer-events: auto;
+    cursor: pointer;
+}
