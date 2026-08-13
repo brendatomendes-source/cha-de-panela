@@ -67,3 +67,15 @@ function confirmarPresente() {
     mensagem.innerText =
         "Presente reservado com carinho! 💙";
 }
+// =========================
+// CONEXÃO COM SUPABASE
+// =========================
+
+const SUPABASE_URL = "https://klnlmxxfunpzqooncgdk.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_7qrNIYZi0X7CZR2g-BKRTw_K2oOzOmi";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
