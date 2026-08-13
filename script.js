@@ -88,37 +88,21 @@ async function confirmarPresente() {
         "Reservando seu presente...";
 
 
-    const resultado = await supabaseClient
+    const { error } = await supabaseClient
         .from("presentes")
         .update({
             reservado: true,
             nome_responsavel: nome
         })
-        .eq("id", presenteSelecionadoId)
-        .select();
+        .eq("id", presenteSelecionadoId);
 
 
-    console.log("Resultado da reserva:", resultado);
+    if (error) {
 
-
-    if (resultado.error) {
-
-        console.error(
-            "Erro ao reservar:",
-            resultado.error
-        );
+        console.error("Erro ao reservar:", error);
 
         mensagem.innerText =
             "Não foi possível reservar o presente. Tente novamente. 💙";
-
-        return;
-    }
-
-
-    if (!resultado.data || resultado.data.length === 0) {
-
-        mensagem.innerText =
-            "O presente não pôde ser reservado.";
 
         return;
     }
