@@ -1,6 +1,11 @@
+// =========================
+// COPIAR PIX
+// =========================
+
 function copiarPix() {
 
-    const chave = document.getElementById("chave-pix").innerText;
+    const chave =
+        document.getElementById("chave-pix").innerText;
 
     navigator.clipboard.writeText(chave)
         .then(function () {
@@ -11,7 +16,9 @@ function copiarPix() {
             mensagem.style.display = "block";
 
             setTimeout(function () {
+
                 mensagem.style.display = "none";
+
             }, 3000);
 
         });
@@ -27,46 +34,67 @@ let presenteSelecionado = "";
 let presenteSelecionadoId = null;
 
 
+// =========================
+// ABRIR MODAL
+// =========================
+
 function abrirModal(nomePresente, idPresente) {
 
     presenteSelecionado = nomePresente;
+
     presenteSelecionadoId = idPresente;
 
-    document.getElementById("nome-presente-modal").innerText =
-        nomePresente;
+    document.getElementById(
+        "nome-presente-modal"
+    ).innerText = nomePresente;
 
-    document.getElementById("nome-convidado").value = "";
+    document.getElementById(
+        "nome-convidado"
+    ).value = "";
 
-    document.getElementById("mensagem-presente").innerText = "";
+    document.getElementById(
+        "mensagem-presente"
+    ).innerText = "";
 
-    document
-        .getElementById("modal-presente")
-        .classList.add("ativo");
+    document.getElementById(
+        "modal-presente"
+    ).classList.add("ativo");
+
 }
 
+
+// =========================
+// FECHAR MODAL
+// =========================
 
 function fecharModal() {
 
-    document
-        .getElementById("modal-presente")
-        .classList.remove("ativo");
+    document.getElementById(
+        "modal-presente"
+    ).classList.remove("ativo");
 
 }
 
+
+// =========================
+// CONFIRMAR PRESENTE
+// =========================
 
 async function confirmarPresente() {
 
     const nome =
         document
-        .getElementById("nome-convidado")
-        .value
-        .trim();
+            .getElementById("nome-convidado")
+            .value
+            .trim();
 
     const mensagem =
-        document.getElementById("mensagem-presente");
+        document.getElementById(
+            "mensagem-presente"
+        );
 
 
-    // Verifica se o nome foi preenchido
+    // Verificar nome
 
     if (!nome) {
 
@@ -77,7 +105,7 @@ async function confirmarPresente() {
     }
 
 
-    // Verifica se o presente foi identificado
+    // Verificar presente
 
     if (!presenteSelecionadoId) {
 
@@ -88,16 +116,20 @@ async function confirmarPresente() {
     }
 
 
+    // Mensagem enquanto salva
+
     mensagem.innerText =
         "Reservando seu presente...";
 
 
     // =========================
-    // SALVAR NO SUPABASE
+    // ATUALIZAR SUPABASE
     // =========================
 
     const { error } = await supabaseClient
+
         .from("presentes")
+
         .update({
 
             reservado: true,
@@ -105,7 +137,11 @@ async function confirmarPresente() {
             nome_responsavel: nome
 
         })
-        .eq("id", presenteSelecionadoId);
+
+        .eq(
+            "id",
+            presenteSelecionadoId
+        );
 
 
     // =========================
@@ -115,7 +151,7 @@ async function confirmarPresente() {
     if (error) {
 
         console.error(
-            "Erro ao reservar:",
+            "Erro ao reservar presente:",
             error
         );
 
@@ -134,7 +170,9 @@ async function confirmarPresente() {
         "Presente reservado com carinho! 💙";
 
 
-    // Muda o botão
+    // =========================
+    // ALTERAR BOTÃO
+    // =========================
 
     const botoes =
         document.querySelectorAll(
@@ -147,12 +185,15 @@ async function confirmarPresente() {
         const onclick =
             botao.getAttribute("onclick");
 
+
         if (
             onclick &&
             onclick.includes(
-                ", " + presenteSelecionadoId + ")"
+                ", " +
+                presenteSelecionadoId +
+                ")"
             )
-        ) {
+        {
 
             botao.innerText =
                 "✓ PRESENTE ESCOLHIDO";
