@@ -3,14 +3,14 @@ function copiarPix() {
     const chave = document.getElementById("chave-pix").innerText;
 
     navigator.clipboard.writeText(chave)
-        .then(function() {
+        .then(function () {
 
             const mensagem =
                 document.getElementById("mensagem-pix");
 
             mensagem.style.display = "block";
 
-            setTimeout(function() {
+            setTimeout(function () {
                 mensagem.style.display = "none";
             }, 3000);
 
@@ -88,20 +88,25 @@ async function confirmarPresente() {
         "Reservando seu presente...";
 
 
-    const { data, error } = await supabaseClient
+    const resultado = await supabaseClient
         .from("presentes")
         .update({
             reservado: true,
             nome_responsavel: nome
         })
         .eq("id", presenteSelecionadoId)
-        .eq("reservado", false)
         .select();
 
 
-    if (error) {
+    console.log("Resultado da reserva:", resultado);
 
-        console.error("Erro Supabase:", error);
+
+    if (resultado.error) {
+
+        console.error(
+            "Erro ao reservar:",
+            resultado.error
+        );
 
         mensagem.innerText =
             "Não foi possível reservar o presente. Tente novamente. 💙";
@@ -110,10 +115,10 @@ async function confirmarPresente() {
     }
 
 
-    if (!data || data.length === 0) {
+    if (!resultado.data || resultado.data.length === 0) {
 
         mensagem.innerText =
-            "Esse presente acabou de ser escolhido por outra pessoa. 💙";
+            "O presente não pôde ser reservado.";
 
         return;
     }
@@ -123,31 +128,20 @@ async function confirmarPresente() {
         "Presente reservado com carinho! 💙";
 
 
-    // Atualiza o cartão na página
-    const botoes =
-        document.querySelectorAll(".presente-card");
+    const botao =
+        document.querySelector(
+            `.presente-botoes .escolher[onclick*=", ${presenteSelecionadoId})"]`
+        );
 
-    botoes.forEach(function(card) {
 
-        const botao =
-            card.querySelector(".escolher");
+    if (botao) {
 
-        if (
-            botao &&
-            botao.getAttribute("onclick") &&
-            botao.getAttribute("onclick").includes(
-                presenteSelecionadoId
-            )
-        ) {
+        botao.innerText =
+            "✓ PRESENTE ESCOLHIDO";
 
-            botao.innerText =
-                "✓ PRESENTE ESCOLHIDO";
+        botao.disabled = true;
 
-            botao.disabled = true;
-
-        }
-
-    });
+    }
 
 }
 
