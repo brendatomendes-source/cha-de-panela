@@ -1115,3 +1115,21 @@ footer small {
 
     opacity: 0.75;
 }
+/* =========================
+   CABEÇALHO DA LISTA
+========================= */
+
+.cabecalho-lista {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.cabecalho-lista .titulo-pequeno {
+    text-align: center;
+}
+
+.cabecalho-lista h1,
+.cabecalho-lista h2,
+.cabecalho-lista p {
+    text-align: center;
+}
