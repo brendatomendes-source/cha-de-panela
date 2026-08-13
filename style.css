@@ -996,3 +996,89 @@ footer small {
 
 }
 
+/* =========================
+   ACABAMENTO DOS PRESENTES
+========================= */
+
+.lista-pagina .presente-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lista-pagina .presente-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(16, 42, 67, 0.14);
+}
+
+
+/* ÍCONE DO PRESENTE */
+
+.lista-pagina .presente-imagem span {
+    display: flex;
+
+    width: 85px;
+    height: 85px;
+
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 5px 15px rgba(16, 42, 67, 0.08);
+}
+
+
+/* STATUS */
+
+.lista-pagina .status {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 600;
+}
+
+
+/* TÍTULO */
+
+.lista-pagina .presente-conteudo h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    color: var(--texto);
+
+    font-weight: 600;
+}
+
+
+/* BOTÃO DA LOJA */
+
+.lista-pagina .presente-botoes .loja {
+    background: white;
+
+    border: 1px solid var(--azul);
+
+    color: var(--azul);
+}
+
+.lista-pagina .presente-botoes .loja:hover {
+    background: var(--azul);
+
+    color: white;
+}
+
+
+/* BOTÃO ESCOLHER */
+
+.lista-pagina .presente-botoes .escolher {
+    background: var(--azul);
+
+    color: white;
+}
+
+.lista-pagina .presente-botoes .escolher:hover {
+    background: var(--azul-medio);
+}
