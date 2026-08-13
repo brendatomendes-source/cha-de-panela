@@ -670,3 +670,126 @@ footer small {
     margin: 30px auto;
     text-align: center;
 }
+/* =========================
+   JANELA DE PRESENTE
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(16, 42, 67, 0.65);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.modal.ativo {
+    display: flex;
+}
+
+.modal-conteudo {
+    position: relative;
+
+    width: 100%;
+    max-width: 480px;
+
+    background: white;
+
+    padding: 40px 30px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+    animation: aparecerModal 0.25s ease;
+}
+
+@keyframes aparecerModal {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.modal-fechar {
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--azul);
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 15px;
+}
+
+.modal-conteudo label {
+    display: block;
+
+    text-align: left;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--azul);
+}
+
+.modal-conteudo input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 8px;
+
+    font-family: "Montserrat", sans-serif;
+
+    outline: none;
+}
+
+.modal-conteudo input:focus {
+    border-color: var(--azul);
+}
+
+.modal-conteudo .botao {
+    width: 100%;
+}
+
+.mensagem-sucesso {
+    color: var(--azul);
+
+    font-weight: 600;
+
+    margin-top: 20px;
+}
