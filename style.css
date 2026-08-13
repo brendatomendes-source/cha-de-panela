@@ -1082,3 +1082,15 @@ footer small {
 .lista-pagina .presente-botoes .escolher:hover {
     background: var(--azul-medio);
 }
+
+.lista-pagina .presente-conteudo strong {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: var(--azul);
+
+    margin: 12px 0 15px;
+}
