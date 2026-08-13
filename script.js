@@ -17,8 +17,15 @@ function copiarPix() {
         });
 
 }
+
+
+// =========================
+// SISTEMA DE PRESENTES
+// =========================
+
 let presenteSelecionado = "";
 let presenteSelecionadoId = null;
+
 
 function abrirModal(nomePresente, idPresente) {
 
@@ -58,6 +65,7 @@ async function confirmarPresente() {
     const mensagem =
         document.getElementById("mensagem-presente");
 
+
     if (!nome) {
 
         mensagem.innerText =
@@ -65,6 +73,7 @@ async function confirmarPresente() {
 
         return;
     }
+
 
     if (!presenteSelecionadoId) {
 
@@ -74,27 +83,32 @@ async function confirmarPresente() {
         return;
     }
 
+
     mensagem.innerText =
         "Reservando seu presente...";
-    
-const { data, error } = await supabaseClient
-    .from("presentes")
-    .update({
-        reservado: true,
-        nome_responsavel: nome
-    })
-    .eq("id", presenteSelecionadoId)
-    .select();
+
+
+    const { data, error } = await supabaseClient
+        .from("presentes")
+        .update({
+            reservado: true,
+            nome_responsavel: nome
+        })
+        .eq("id", presenteSelecionadoId)
+        .eq("reservado", false)
+        .select();
+
 
     if (error) {
 
-        console.error(error);
+        console.error("Erro Supabase:", error);
 
         mensagem.innerText =
             "Não foi possível reservar o presente. Tente novamente. 💙";
 
         return;
     }
+
 
     if (!data || data.length === 0) {
 
@@ -104,21 +118,57 @@ const { data, error } = await supabaseClient
         return;
     }
 
+
     mensagem.innerText =
         "Presente reservado com carinho! 💙";
 
+
+    // Atualiza o cartão na página
+    const botoes =
+        document.querySelectorAll(".presente-card");
+
+    botoes.forEach(function(card) {
+
+        const botao =
+            card.querySelector(".escolher");
+
+        if (
+            botao &&
+            botao.getAttribute("onclick") &&
+            botao.getAttribute("onclick").includes(
+                presenteSelecionadoId
+            )
+        ) {
+
+            botao.innerText =
+                "✓ PRESENTE ESCOLHIDO";
+
+            botao.disabled = true;
+
+        }
+
+    });
+
 }
+
 
 // =========================
 // CONEXÃO COM SUPABASE
 // =========================
 
-const SUPABASE_URL = "https://klnlmxxfunpzqooncgdk.supabase.co";
+const SUPABASE_URL =
+    "https://klnlmxxfunpzqooncgdk.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_7qrNIYZi0X7CZR2g-BKRTw_K2oOzOmi";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+const SUPABASE_KEY =
+    "sb_publishable_7qrNIYZi0X7CZR2g-BKRTw_K2oOzOmi";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
 console.log("Supabase conectado!");
