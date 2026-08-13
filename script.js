@@ -44,21 +44,35 @@ function abrirModal(nomePresente, idPresente) {
 
     presenteSelecionadoId = idPresente;
 
-    document.getElementById(
-        "nome-presente-modal"
-    ).innerText = nomePresente;
+    const nomeModal =
+        document.getElementById(
+            "nome-presente-modal"
+        );
 
-    document.getElementById(
-        "nome-convidado"
-    ).value = "";
+    const nomeConvidado =
+        document.getElementById(
+            "nome-convidado"
+        );
 
-    document.getElementById(
-        "mensagem-presente"
-    ).innerText = "";
+    const mensagem =
+        document.getElementById(
+            "mensagem-presente"
+        );
 
-    document.getElementById(
-        "modal-presente"
-    ).classList.add("ativo");
+    const modal =
+        document.getElementById(
+            "modal-presente"
+        );
+
+
+    nomeModal.innerText =
+        nomePresente;
+
+    nomeConvidado.value = "";
+
+    mensagem.innerText = "";
+
+    modal.classList.add("ativo");
 
 }
 
@@ -69,9 +83,12 @@ function abrirModal(nomePresente, idPresente) {
 
 function fecharModal() {
 
-    document.getElementById(
-        "modal-presente"
-    ).classList.remove("ativo");
+    const modal =
+        document.getElementById(
+            "modal-presente"
+        );
+
+    modal.classList.remove("ativo");
 
 }
 
@@ -84,7 +101,9 @@ async function confirmarPresente() {
 
     const nome =
         document
-            .getElementById("nome-convidado")
+            .getElementById(
+                "nome-convidado"
+            )
             .value
             .trim();
 
@@ -94,18 +113,15 @@ async function confirmarPresente() {
         );
 
 
-    // Verificar nome
-
     if (!nome) {
 
         mensagem.innerText =
             "Por favor, digite seu nome. 💙";
 
         return;
+
     }
 
-
-    // Verificar presente
 
     if (!presenteSelecionadoId) {
 
@@ -113,96 +129,47 @@ async function confirmarPresente() {
             "Não foi possível identificar o presente.";
 
         return;
+
     }
 
-
-    // Mensagem enquanto salva
 
     mensagem.innerText =
         "Reservando seu presente...";
 
 
-    // =========================
-    // ATUALIZAR SUPABASE
-    // =========================
+    const { error } =
+        await supabaseClient
+            .from("presentes")
+            .update({
 
-    const { error } = await supabaseClient
+                reservado: true,
 
-        .from("presentes")
+                nome_responsavel: nome
 
-        .update({
+            })
+            .eq(
+                "id",
+                presenteSelecionadoId
+            );
 
-            reservado: true,
-
-            nome_responsavel: nome
-
-        })
-
-        .eq(
-            "id",
-            presenteSelecionadoId
-        );
-
-
-    // =========================
-    // VERIFICAR ERRO
-    // =========================
 
     if (error) {
 
         console.error(
-            "Erro ao reservar presente:",
+            "Erro ao reservar:",
             error
         );
 
         mensagem.innerText =
-            "Não foi possível reservar o presente. Tente novamente. 💙";
+            "Não foi possível reservar o presente. 💙";
 
         return;
+
     }
 
 
-    // =========================
-    // SUCESSO
-    // =========================
-
     mensagem.innerText =
         "Presente reservado com carinho! 💙";
-
-
-    // =========================
-    // ALTERAR BOTÃO
-    // =========================
-
-    const botoes =
-        document.querySelectorAll(
-            ".presente-botoes .escolher"
-        );
-
-
-    botoes.forEach(function (botao) {
-
-        const onclick =
-            botao.getAttribute("onclick");
-
-
-        if (
-            onclick &&
-            onclick.includes(
-                ", " +
-                presenteSelecionadoId +
-                ")"
-            )
-        {
-
-            botao.innerText =
-                "✓ PRESENTE ESCOLHIDO";
-
-            botao.disabled = true;
-
-        }
-
-    });
 
 }
 
