@@ -18,10 +18,12 @@ function copiarPix() {
 
 }
 let presenteSelecionado = "";
+let presenteSelecionadoId = null;
 
-function abrirModal(nomePresente) {
+function abrirModal(nomePresente, idPresente) {
 
     presenteSelecionado = nomePresente;
+    presenteSelecionadoId = idPresente;
 
     document.getElementById("nome-presente-modal").innerText =
         nomePresente;
@@ -45,7 +47,7 @@ function fecharModal() {
 }
 
 
-function confirmarPresente() {
+async function confirmarPresente() {
 
     const nome =
         document
@@ -64,9 +66,50 @@ function confirmarPresente() {
         return;
     }
 
+    if (!presenteSelecionadoId) {
+
+        mensagem.innerText =
+            "Não foi possível identificar o presente.";
+
+        return;
+    }
+
+    mensagem.innerText =
+        "Reservando seu presente...";
+
+    const { data, error } = await supabaseClient
+        .from("presentes")
+        .update({
+            reservado: true,
+            nome_responsavel: nome
+        })
+        .eq("id", presenteSelecionadoId)
+        .eq("reservado", false)
+        .select();
+
+    if (error) {
+
+        console.error(error);
+
+        mensagem.innerText =
+            "Não foi possível reservar o presente. Tente novamente. 💙";
+
+        return;
+    }
+
+    if (!data || data.length === 0) {
+
+        mensagem.innerText =
+            "Esse presente acabou de ser escolhido por outra pessoa. 💙";
+
+        return;
+    }
+
     mensagem.innerText =
         "Presente reservado com carinho! 💙";
+
 }
+
 // =========================
 // CONEXÃO COM SUPABASE
 // =========================
