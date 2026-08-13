@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Lista de Presentes | Pietro & Brenda</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho-lista">
+
+        <a
+            href="index.html"
+            class="voltar">
+
+            ← Voltar para o convite
+
+        </a>
+
+
+        <p class="titulo-pequeno">
+            COM CARINHO
+        </p>
+
+
+        <h1>
+            Nossa Lista de Presentes
+        </h1>
+
+
+        <p>
+            Escolhemos alguns itens que serão
+            muito especiais para nossa casa nova. 💙
+        </p>
+
+    </header>
+
+
+    <!-- LISTA -->
+
+    <main>
+
+        <section
+            class="lista-pagina"
+            id="lista-presentes">
+
+
+            <!-- TÁBUA -->
+
+            <div class="presente-card">
+
+                <div class="presente-imagem">
+
+                    <span>🍽️</span>
+
+                </div>
+
+
+                <div class="presente-conteudo">
+
+                    <span class="status disponivel">
+                        ● DISPONÍVEL
+                    </span>
+
+
+                    <h2>
+                        Tábua de Corte
+                    </h2>
+
+
+                    <p>
+                        Tábua de corte de vidro,
+                        38 cm, Clink.
+                    </p>
+
+
+                    <strong>
+                        Consultar preço
+                    </strong>
+
+
+                    <div class="presente-botoes">
+
+                        <a
+                            href="https://www.havan.com.br/tabua-de-corte-vidro-38cm-clink-sortido/p?utm_source=share"
+                            target="_blank"
+                            class="botao loja">
+
+                            🛒 VER PRODUTO
+
+                        </a>
+
+
+                        <button
+                            class="botao escolher"
+                            onclick="abrirModal('Tábua de Corte')">
+
+                            🎁 EU VOU DAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PANELAS -->
+
+            <div class="presente-card">
+
+                <div class="presente-imagem">
+
+                    <span>🍳</span>
+
+                </div>
+
+
+                <div class="presente-conteudo">
+
+                    <span class="status disponivel">
+                        ● DISPONÍVEL
+                    </span>
+
+
+                    <h2>
+                        Jogo de Panelas
+                    </h2>
+
+
+                    <p>
+                        Tramontina Califórnia,
+                        7 peças, Baunilha.
+                    </p>
+
+
+                    <strong>
+                        Consultar preço
+                    </strong>
+
+
+                    <div class="presente-botoes">
+
+                        <a
+                            href="https://www.havan.com.br/jogo-de-panela-tramontina-california-7-pecas-baunilha/p?utm_source=share"
+                            target="_blank"
+                            class="botao loja">
+
+                            🛒 VER PRODUTO
+
+                        </a>
+
+
+                        <button
+                            class="botao escolher"
+                            onclick="abrirModal('Jogo de Panelas Tramontina')">
+
+                            🎁 EU VOU DAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CESTO -->
+
+            <div class="presente-card">
+
+                <div class="presente-imagem">
+
+                    <span>🧺</span>
+
+                </div>
+
+
+                <div class="presente-conteudo">
+
+                    <span class="status disponivel">
+                        ● DISPONÍVEL
+                    </span>
+
+
+                    <h2>
+                        Cesto Organizador
+                    </h2>
+
+
+                    <p>
+                        Cesto organizador com
+                        alça, Flow OU.
+                    </p>
+
+
+                    <strong>
+                        Consultar preço
+                    </strong>
+
+
+                    <div class="presente-botoes">
+
+                        <a
+                            href="https://www.havan.com.br/cesto-organizador-com-alca-flow-ou-800ml-bege/p?utm_source=share"
+                            target="_blank"
+                            class="botao loja">
+
+                            🛒 VER PRODUTO
+
+                        </a>
+
+
+                        <button
+                            class="botao escolher"
+                            onclick="abrirModal('Cesto Organizador')">
+
+                            🎁 EU VOU DAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHURRASCO -->
+
+            <div class="presente-card">
+
+                <div class="presente-imagem">
+
+                    <span>🥩</span>
+
+                </div>
+
+
+                <div class="presente-conteudo">
+
+                    <span class="status disponivel">
+                        ● DISPONÍVEL
+                    </span>
+
+
+                    <h2>
+                        Jogo de Churrasco
+                    </h2>
+
+
+                    <p>
+                        Jogo de churrasco Mor,
+                        garfo e faca em aço inoxidável.
+                    </p>
+
+
+                    <strong>
+                        Consultar preço
+                    </strong>
+
+
+                    <div class="presente-botoes">
+
+                        <a
+                            href="https://www.havan.com.br/jogo-de-churrasco-garfo-e-faca-mor-aco-inoxidavel-12-peas/p?utm_source=share"
+                            target="_blank"
+                            class="botao loja">
+
+                            🛒 VER PRODUTO
+
+                        </a>
+
+
+                        <button
+                            class="botao escolher"
+                            onclick="abrirModal('Jogo de Churrasco')">
+
+                            🎁 EU VOU DAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- PALETA -->
+
+        <section class="paleta-casa">
+
+            <p class="titulo-pequeno">
+                UM DETALHE ESPECIAL
+            </p>
+
+
+            <h2>
+                Nossa casa 💙
+            </h2>
+
+
+            <p>
+
+                Escolhemos uma paleta de
+                <strong>azul-marinho e branco</strong>
+                para nossa casa.
+
+            </p>
+
+
+            <p>
+
+                Caso queira nos presentear com algo
+                que não esteja na lista, ficaremos muito
+                felizes se puder escolher algo que
+                combine com essas cores.
+
+            </p>
+
+
+            <div class="cores-casa">
+
+                <div class="cor azul-marinho"></div>
+
+                <div class="cor branco"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL -->
+
+    <div
+        class="modal"
+        id="modal-presente">
+
+        <div class="modal-conteudo">
+
+
+            <button
+                class="modal-fechar"
+                onclick="fecharModal()">
+
+                ×
+
+            </button>
+
+
+            <p class="titulo-pequeno">
+                UM PRESENTE ESPECIAL
+            </p>
+
+
+            <h2>
+                Você quer dar este presente? 💙
+            </h2>
+
+
+            <p id="nome-presente-modal">
+                Presente selecionado
+            </p>
+
+
+            <label for="nome-convidado">
+                Seu nome
+            </label>
+
+
+            <input
+                type="text"
+                id="nome-convidado"
+                placeholder="Digite seu nome">
+
+
+            <button
+                class="botao"
+                onclick="confirmarPresente()">
+
+                💙 CONFIRMAR PRESENTE
+
+            </button>
+
+
+            <p
+                id="mensagem-presente"
+                class="mensagem-sucesso">
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            Com carinho, Pietro & Brenda 💙
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
