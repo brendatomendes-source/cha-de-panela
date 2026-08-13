@@ -76,16 +76,15 @@ async function confirmarPresente() {
 
     mensagem.innerText =
         "Reservando seu presente...";
-
-    const { data, error } = await supabaseClient
-        .from("presentes")
-        .update({
-            reservado: true,
-            nome_responsavel: nome
-        })
-        .eq("id", presenteSelecionadoId)
-        .eq("reservado", false)
-        .select();
+    
+const { data, error } = await supabaseClient
+    .from("presentes")
+    .update({
+        reservado: true,
+        nome_responsavel: nome
+    })
+    .eq("id", presenteSelecionadoId)
+    .select();
 
     if (error) {
 
