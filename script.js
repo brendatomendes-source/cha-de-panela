@@ -16,9 +16,7 @@ function copiarPix() {
             mensagem.style.display = "block";
 
             setTimeout(function () {
-
                 mensagem.style.display = "none";
-
             }, 3000);
 
         });
@@ -41,38 +39,23 @@ let presenteSelecionadoId = null;
 function abrirModal(nomePresente, idPresente) {
 
     presenteSelecionado = nomePresente;
-
     presenteSelecionadoId = idPresente;
 
-    const nomeModal =
-        document.getElementById(
-            "nome-presente-modal"
-        );
+    document.getElementById(
+        "nome-presente-modal"
+    ).innerText = nomePresente;
 
-    const nomeConvidado =
-        document.getElementById(
-            "nome-convidado"
-        );
+    document.getElementById(
+        "nome-convidado"
+    ).value = "";
 
-    const mensagem =
-        document.getElementById(
-            "mensagem-presente"
-        );
+    document.getElementById(
+        "mensagem-presente"
+    ).innerText = "";
 
-    const modal =
-        document.getElementById(
-            "modal-presente"
-        );
-
-
-    nomeModal.innerText =
-        nomePresente;
-
-    nomeConvidado.value = "";
-
-    mensagem.innerText = "";
-
-    modal.classList.add("ativo");
+    document.getElementById(
+        "modal-presente"
+    ).classList.add("ativo");
 
 }
 
@@ -83,12 +66,9 @@ function abrirModal(nomePresente, idPresente) {
 
 function fecharModal() {
 
-    const modal =
-        document.getElementById(
-            "modal-presente"
-        );
-
-    modal.classList.remove("ativo");
+    document.getElementById(
+        "modal-presente"
+    ).classList.remove("ativo");
 
 }
 
@@ -101,9 +81,7 @@ async function confirmarPresente() {
 
     const nome =
         document
-            .getElementById(
-                "nome-convidado"
-            )
+            .getElementById("nome-convidado")
             .value
             .trim();
 
@@ -119,7 +97,6 @@ async function confirmarPresente() {
             "Por favor, digite seu nome. 💙";
 
         return;
-
     }
 
 
@@ -129,36 +106,31 @@ async function confirmarPresente() {
             "Não foi possível identificar o presente.";
 
         return;
-
     }
 
 
     mensagem.innerText =
         "Reservando seu presente...";
 
-const { data, error } =
-    await supabaseClient
-        .from("presentes")
-        .update({
 
-            reservado: true,
+    // =========================
+    // SALVAR NO BANCO
+    // =========================
 
-            nome_responsavel: nome
+    const { error } =
+        await supabaseClient
+            .from("presentes")
+            .update({
 
-        })
-        .eq(
-            "id",
-            presenteSelecionadoId
-        )
-        .select();
+                reservado: true,
 
-console.log("ID do presente:", presenteSelecionadoId);
+                nome_responsavel: nome
 
-console.log("Nome:", nome);
-
-console.log("DATA:", data);
-
-console.log("ERRO:", error);
+            })
+            .eq(
+                "id",
+                presenteSelecionadoId
+            );
 
 
     if (error) {
@@ -172,12 +144,98 @@ console.log("ERRO:", error);
             "Não foi possível reservar o presente. 💙";
 
         return;
-
     }
 
 
+    // =========================
+    // SUCESSO
+    // =========================
+
     mensagem.innerText =
         "Presente reservado com carinho! 💙";
+
+
+    // Atualiza o botão
+
+    const botao =
+        document.querySelector(
+            `.escolher[onclick*=", ${presenteSelecionadoId})"]`
+        );
+
+
+    if (botao) {
+
+        botao.innerText =
+            "✓ PRESENTE ESCOLHIDO";
+
+        botao.disabled = true;
+
+    }
+
+}
+
+
+// =========================
+// VERIFICAR PRESENTES
+// =========================
+
+async function carregarStatusPresentes() {
+
+    const { data, error } =
+        await supabaseClient
+            .from("presentes_publicos")
+            .select(
+                "id,nome,reservado"
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar presentes:",
+            error
+        );
+
+        return;
+    }
+
+
+    console.log(
+        "Status dos presentes:",
+        data
+    );
+
+
+    data.forEach(function (presente) {
+
+        const botao =
+            document.querySelector(
+                `.escolher[onclick*=", ${presente.id})"]`
+            );
+
+
+        if (!botao) {
+            return;
+        }
+
+
+        if (presente.reservado === true) {
+
+            botao.innerText =
+                "✓ PRESENTE ESCOLHIDO";
+
+            botao.disabled = true;
+
+        } else {
+
+            botao.innerText =
+                "🎁 EU VOU DAR";
+
+            botao.disabled = false;
+
+        }
+
+    });
 
 }
 
@@ -203,4 +261,18 @@ const supabaseClient =
 
 console.log(
     "Supabase conectado!"
+);
+
+
+// =========================
+// CARREGAR STATUS
+// =========================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        carregarStatusPresentes();
+
+    }
 );
