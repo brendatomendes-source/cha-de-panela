@@ -793,3 +793,39 @@ footer small {
 
     margin-top: 20px;
 }
+/* =========================
+   ACESSO À LISTA DE PRESENTES
+========================= */
+
+.acesso-presentes {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background: #f7f9fc;
+
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+}
+
+.acesso-presentes h2 {
+    margin-bottom: 15px;
+}
+
+.acesso-presentes p:not(.titulo-pequeno) {
+    max-width: 550px;
+
+    margin: 0 auto 25px;
+
+    line-height: 1.8;
+}
+
+.acesso-presentes .botao {
+    display: inline-block;
+
+    text-decoration: none;
+
+    margin-top: 5px;
+}
